@@ -1,0 +1,25 @@
+{
+  "name": "blockstr",
+  "version": "0.0.0",
+  "description": "Bitcoin Block Clock for Nostr",
+  "main": "bin/blockstr",
+  "scripts": {
+    "test": "bmocha test/*-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinheadmz/blockstr.git"
+  },
+  "author": "Matthew Zipkin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pinheadmz/blockstr/issues"
+  },
+  "homepage": "https://github.com/pinheadmz/blockstr#readme",
+  "dependencies": {
+    "pureimage": "^0.3.17"
+  },
+  "devDependencies": {
+    "bmocha": "^2.1.8"
+  }
+}
