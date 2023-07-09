@@ -3,8 +3,16 @@
 
 'use strict';
 
+const os = require('os');
 const {exec} = require('child_process');
 const Art = require('../lib/art');
+
+function cmd() {
+  if (os.platform() === 'darwin')
+    return '/Applications/Firefox.app/Contents/MacOS/firefox';
+  else
+    return 'firefox';
+}
 
 describe('Print Test', function() {
   it('should print BTC genesis', async () => {
@@ -14,6 +22,6 @@ describe('Print Test', function() {
     art.draw();
     art.print();
 
-    exec(`firefox -new-tab file://${art.filename()}`);
+    exec(`${cmd()} -new-tab file://${art.filename()}`);
   });
 });
