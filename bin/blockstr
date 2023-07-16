@@ -1,2 +1,28 @@
 #!/usr/bin/env node
+'use strict';
 
+const {NodeClient} = require('bclient');
+const Art = require('../lib/art');
+
+const hash = process.argv[2];
+const username = process.argv[3];
+const password = process.argv[4];
+
+const clientOptions = {
+  port: 8332,
+  username,
+  password
+};
+
+const client = new NodeClient(clientOptions);
+
+(async () => {
+  const block = await client.execute('getblock', [hash]);
+  const art = new Art(block);
+  art.draw();
+  await art.print();
+  process.stdout.write(`Art printed: ${art.filename()}\n`);
+})().catch((err) => {
+  console.error(err.stack);
+  process.exit(1);
+});
