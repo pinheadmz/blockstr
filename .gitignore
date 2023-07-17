@@ -1,3 +1,5 @@
 node_modules/
 html/*
 !html/static/
+conf/*
+!conf/nsec_example.txt
