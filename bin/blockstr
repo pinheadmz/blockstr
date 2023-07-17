@@ -52,10 +52,10 @@ const keys = Keys.importNsec(nsec);
     [
       'wss://nos.lol',
       'wss://relay.damus.io',
-      'wss://offchain.pub',
+      // 'wss://offchain.pub',  // Spam: URLs are not allowed in notes
       'wss://eden.nostr.land',
-      'wss://nostr.wine',
-      'wss://brb.io',
+      // 'wss://nostr.wine',    // blocked: not an active paid member
+      // 'wss://brb.io',        // Invalid websocket frame: FIN must be set (?)
       'wss://relay.current.fyi'
     ]);
 })().catch((err) => {
