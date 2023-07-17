@@ -39,6 +39,8 @@ function LOG(msg) {
   await art.print();
   LOG(`Art printed: ${art.filename()}\n`);
 
+  fs.chmod(art.filename(), 0o777, () => {});
+
   const event = new Event();
   event.content = `https://thebitcoinblockclock.com/blockstr/${block.hash}.png`;
   event.sign(keys);
