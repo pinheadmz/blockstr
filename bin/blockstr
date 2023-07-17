@@ -28,24 +28,24 @@ const nsec = fs.readFileSync(
   'ascii');
 const keys = Keys.importNsec(nsec);
 
-function LOG(msg) {
-  process.stdout.write(msg);
-}
-
 (async () => {
   const block = await client.execute('getblock', [hash]);
   const art = new Art(block);
   art.draw();
   await art.print();
-  LOG(`Art printed: ${art.filename()}\n`);
+  console.log(`Art printed: ${art.filename()}\n`);
 
   fs.chmod(art.filename(), 0o777, () => {});
 
   const event = new Event();
-  event.content = `https://thebitcoinblockclock.com/blockstr/${block.hash}.png`;
+  event.content =
+    '#Bitcoin Block Art by Blockstr!\n' +
+    `Height: ${block.height}\n` +
+    `Weight: ${block.weight}\n` +
+    `https://thebitcoinblockclock.com/blockstr/${block.hash}.png`;
   event.sign(keys);
 
-  LOG(`Event serialized: ${event.serialize()}\n`);
+  console.log(`Event serialized: ${event.serialize()}\n`);
 
   await Relay.sendEventToRelays(
     event,
@@ -56,8 +56,7 @@ function LOG(msg) {
       'wss://eden.nostr.land',
       'wss://nostr.wine',
       'wss://brb.io',
-      'wss://relay.current.fyi',
-      'wss://relay.snort.social'
+      'wss://relay.current.fyi'
     ]);
 })().catch((err) => {
   console.error(err.stack);

@@ -18,7 +18,7 @@
   "homepage": "https://github.com/pinheadmz/blockstr#readme",
   "dependencies": {
     "bclient": "^0.1.7",
-    "boogers": "github:pinheadmz/boogers",
+    "boogers": "github:pinheadmz/boogers#master",
     "pureimage": "^0.3.17"
   },
   "devDependencies": {
