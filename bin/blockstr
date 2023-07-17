@@ -2,11 +2,17 @@
 'use strict';
 
 const {NodeClient} = require('bclient');
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+
 const Art = require('../lib/art');
 
+const file = path.join(os.homedir(), '.bitcoin', '.cookie');
+const cookie = fs.readFileSync(file, 'ascii');
+const [username, password] = cookie.split(':');
+
 const hash = process.argv[2];
-const username = process.argv[3];
-const password = process.argv[4];
 
 const clientOptions = {
   port: 8332,
