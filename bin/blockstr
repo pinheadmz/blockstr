@@ -40,7 +40,7 @@ function LOG(msg) {
   LOG(`Art printed: ${art.filename()}\n`);
 
   const event = new Event();
-  event.content = `https://thebitcoinblockclock.com/blockstr/${block.hash()}.png`;
+  event.content = `https://thebitcoinblockclock.com/blockstr/${block.hash}.png`;
   event.sign(keys);
 
   LOG(`Event serialized: ${event.serialize()}\n`);
