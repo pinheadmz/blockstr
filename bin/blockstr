@@ -33,7 +33,7 @@ const keys = Keys.importNsec(nsec);
   const art = new Art(block);
   art.draw();
   await art.print();
-  console.log(`Art printed: ${art.filename()}\n`);
+  console.log(`\nArt printed: ${art.filename()}\n`);
 
   fs.chmod(art.filename(), 0o777, () => {});
 
@@ -56,6 +56,9 @@ const keys = Keys.importNsec(nsec);
       // 'wss://eden.nostr.land', // timeout, 403
       // 'wss://nostr.wine',      // blocked: not an active paid member
       // 'wss://brb.io',          // Invalid websocket frame: FIN must be set (?)
+      'wss://purplepag.es',
+      'wss://realy.nostr.band',
+      'wss://nostr-pub.wellorder.net',
       'wss://relay.current.fyi',
       'wss://relay.snort.social'
     ]);
