@@ -57,7 +57,7 @@ const keys = Keys.importNsec(nsec);
       // 'wss://nostr.wine',      // blocked: not an active paid member
       // 'wss://brb.io',          // Invalid websocket frame: FIN must be set (?)
       // 'wss://purplepag.es',    // event kind 1 not allowed
-      'wss://realy.nostr.band',
+      'wss://relay.nostr.band',
       'wss://nostr-pub.wellorder.net',
       // 'wss://relay.current.fyi', // 403
       'wss://relay.snort.social'
