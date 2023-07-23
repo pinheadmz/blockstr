@@ -60,7 +60,7 @@ const keys = Keys.importNsec(nsec);
       'wss://relay.nostr.band',
       'wss://nostr-pub.wellorder.net',
       // 'wss://relay.current.fyi', // 403
-      'wss://relay.snort.social'
+      // 'wss://relay.snort.social' // no active subscription
     ]);
 })().catch((err) => {
   console.error(err.stack);
