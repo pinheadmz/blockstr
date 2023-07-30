@@ -17,7 +17,7 @@ function cmd() {
     return 'firefox';
 }
 
-describe('Print Test', function() {
+describe.skip('Print Test', function() {
   for (const block of blocks) {
     it(`should print BTC block ${block.height}`, async () => {
       const art = new Art(block);
@@ -27,4 +27,21 @@ describe('Print Test', function() {
       exec(`${cmd()} -new-tab file://${art.filename()}`);
     });
   }
+});
+
+describe('Orbit Test', function() {
+  this.timeout(0);
+  const block = blocks[0];
+  block.height = 0;
+  const start = block.height;
+  it('should print BTC blocks', async () => {
+    while (block.height < start + 2020) {
+      const art = new Art(block);
+      art.draw();
+      await art.print();
+
+      exec(`${cmd()} -new-tab file://${art.filename()}`);
+      block.height += 100;
+    }
+  });
 });
