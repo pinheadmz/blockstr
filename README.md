@@ -25,3 +25,5 @@ The little satellite orbits the moon every 2,016 blocks representing the difficu
 from the `nonce` field in the block header.
 
 Finally, the coinbase scriptsig is printed in the lower left side of the image. This is text added to the block by the miner or mining pool.
+
+![explanation](docs/explanation.png)
