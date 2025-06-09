@@ -17,11 +17,11 @@ function cmd() {
     return 'firefox';
 }
 
-describe.skip('Print Test', function() {
+describe('Print Test', function() {
   for (const block of blocks) {
     it(`should print BTC block ${block.height}`, async () => {
       const art = new Art(block);
-      art.draw();
+      await art.draw();
       await art.print();
 
       exec(`${cmd()} -new-tab file://${art.filename()}`);
@@ -29,7 +29,7 @@ describe.skip('Print Test', function() {
   }
 });
 
-describe('Orbit Test', function() {
+describe.skip('Orbit Test', function() {
   this.timeout(0);
   const block = blocks[0];
   block.height = 0;

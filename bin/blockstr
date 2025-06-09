@@ -31,7 +31,7 @@ const keys = Keys.importNsec(nsec);
 (async () => {
   const block = await client.execute('getblock', [hash, 2]);
   const art = new Art(block);
-  art.draw();
+  await art.draw();
   await art.print();
   console.log(`\nArt printed: ${art.filename()}\n`);
 
